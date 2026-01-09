@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+/* CompressorX Design System - Bergamot Color Palette */
+:root {
+  /* Primary Colors - Bergamot inspired */
+  --color-bergamot-50: #fefce8;
+  --color-bergamot-100: #fef9c3;
+  --color-bergamot-200: #fef08a;
+  --color-bergamot-300: #fde047;
+  --color-bergamot-400: #facc15;
+  --color-bergamot-500: #eab308;
+  --color-bergamot-600: #ca8a04;
+  --color-bergamot-700: #a16207;
+  --color-bergamot-800: #854d0e;
+  --color-bergamot-900: #713f12;
+  --color-bergamot-950: #422006;
+
+  /* Ochre Accent - Focus indicators */
+  --color-ochre-400: #fb923c;
+  --color-ochre-500: #f97316;
+  --color-ochre-600: #ea580c;
+
+  /* Neutral Colors */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* Semantic Colors */
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+
+  /* Compression Indicators */
+  --color-compression-green: #22c55e;
+  --color-compression-yellow: #eab308;
+  --color-compression-orange: #f97316;
+
+  /* Light Mode Theme */
+  --background: var(--color-neutral-50);
+  --foreground: var(--color-neutral-900);
+  --card: #ffffff;
+  --card-foreground: var(--color-neutral-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-neutral-900);
+  --primary: var(--color-bergamot-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-neutral-100);
+  --secondary-foreground: var(--color-neutral-900);
+  --muted: var(--color-neutral-100);
+  --muted-foreground: var(--color-neutral-500);
+  --accent: var(--color-bergamot-100);
+  --accent-foreground: var(--color-bergamot-900);
+  --destructive: var(--color-error);
+  --destructive-foreground: #ffffff;
+  --border: var(--color-neutral-200);
+  --input: var(--color-neutral-200);
+  --ring: var(--color-ochre-500);
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Dark Mode Theme */
+  --background: var(--color-neutral-950);
+  --foreground: var(--color-neutral-50);
+  --card: var(--color-neutral-900);
+  --card-foreground: var(--color-neutral-50);
+  --popover: var(--color-neutral-900);
+  --popover-foreground: var(--color-neutral-50);
+  --primary: var(--color-bergamot-500);
+  --primary-foreground: var(--color-neutral-950);
+  --secondary: var(--color-neutral-800);
+  --secondary-foreground: var(--color-neutral-50);
+  --muted: var(--color-neutral-800);
+  --muted-foreground: var(--color-neutral-400);
+  --accent: var(--color-bergamot-900);
+  --accent-foreground: var(--color-bergamot-100);
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: var(--color-neutral-800);
+  --input: var(--color-neutral-800);
+  --ring: var(--color-ochre-400);
+}
+
+/* Base Styles */
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Typography Scale */
+.text-display {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-heading-1 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.text-heading-2 {
+  font-size: 1.875rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.text-heading-3 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.text-heading-4 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Focus Indicators - Ochre accent */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Enhanced focus styles for better visibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="switch"]:focus-visible,
+[role="slider"]:focus-visible,
+[role="separator"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
+}
+
+/* Focus styles for dark mode */
+.dark button:focus-visible,
+.dark a:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible,
+.dark [role="button"]:focus-visible,
+.dark [role="switch"]:focus-visible,
+.dark [role="slider"]:focus-visible,
+.dark [role="separator"]:focus-visible,
+.dark [tabindex]:focus-visible {
+  box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.3);
+}
+
+/* Skip link styles */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus,
+.not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focus within for composite widgets */
+.focus-within-ring:focus-within {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Keyboard navigation indicator - shows when using keyboard */
+[data-focus-visible-added] {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Smooth theme transitions */
+body,
+.transition-theme {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Compression indicator utilities */
+.compression-green {
+  color: var(--color-compression-green);
+}
+
+.compression-yellow {
+  color: var(--color-compression-yellow);
+}
+
+.compression-orange {
+  color: var(--color-compression-orange);
+}
+
+.bg-compression-green {
+  background-color: var(--color-compression-green);
+}
+
+.bg-compression-yellow {
+  background-color: var(--color-compression-yellow);
+}
+
+.bg-compression-orange {
+  background-color: var(--color-compression-orange);
+}
+
+
+/* Indeterminate progress bar animation */
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.animate-indeterminate {
+  animation: indeterminate 1.5s ease-in-out infinite;
+}
