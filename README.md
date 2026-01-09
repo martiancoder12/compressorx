@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# CompressorX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A powerful, privacy-focused image compression web application that runs entirely in your browser. No uploads to servers - your images stay on your device.
 
-Currently, two official plugins are available:
+**[Live Demo](https://compressorx-bqes54xpm-ashfaaq-kazis-projects-86ac304d.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![CompressorX](https://img.shields.io/badge/React-19-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue) ![Vite](https://img.shields.io/badge/Vite-7-purple) ![License](https://img.shields.io/badge/License-MIT-green)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Privacy First** - All compression happens client-side. Your images never leave your device.
+- **Batch Processing** - Compress multiple images simultaneously with concurrent Web Workers.
+- **Multiple Formats** - Export to JPEG, PNG, WebP, or AVIF.
+- **Quality Control** - Fine-tune compression with quality presets or custom settings.
+- **Dimension Scaling** - Resize images with aspect ratio lock.
+- **Before/After Comparison** - Interactive split-view to compare original vs compressed.
+- **Compression Metrics** - See file size reduction, compression ratio, and dimensions.
+- **ZIP Export** - Download all compressed images as a single ZIP file.
+- **Dark/Light Theme** - Automatic system theme detection with manual override.
+- **PWA Support** - Install as a desktop/mobile app, works offline.
+- **Responsive Design** - Works on desktop, tablet, and mobile.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** - UI framework with latest features
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool with HMR
+- **Tailwind CSS 4** - Utility-first styling
+- **Zustand** - Lightweight state management
+- **Radix UI** - Accessible component primitives
+- **Web Workers** - Non-blocking compression
+- **IndexedDB** - Compression history storage
+- **Vitest** - Unit testing with 85 tests
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/martiancoder12/compressorx.git
+cd compressorx
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Available Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run tests in watch mode |
+| `npm run test:run` | Run tests once |
+| `npm run test:coverage` | Generate coverage report |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Architecture
+
 ```
+src/
+├── components/          # React components organized by feature
+│   ├── comparison/      # Before/after image comparison
+│   ├── controls/        # Quality, format, dimension controls
+│   ├── download/        # Download and export functionality
+│   ├── layout/          # Header, footer, theme toggle
+│   ├── processing/      # Progress indicators
+│   ├── ui/              # Reusable UI primitives
+│   └── upload/          # Drag-and-drop upload
+├── hooks/               # Custom React hooks
+├── lib/                 # Utilities and business logic
+│   ├── compression/     # Image compression engine
+│   ├── storage/         # IndexedDB and localStorage
+│   └── utils/           # Helper functions
+├── stores/              # Zustand state stores
+├── types/               # TypeScript type definitions
+└── workers/             # Web Worker for compression
+```
+
+## Browser Support
+
+CompressorX uses modern browser APIs including:
+- OffscreenCanvas
+- Web Workers
+- IndexedDB
+- Service Workers (PWA)
+
+Supported browsers: Chrome 80+, Firefox 75+, Safari 14+, Edge 80+
+
+## License
+
+MIT License - feel free to use this project for personal or commercial purposes.
+
+## Author
+
+Built by [Ashfaaq Kazi](https://github.com/martiancoder12)
